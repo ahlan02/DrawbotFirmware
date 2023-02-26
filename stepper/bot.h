@@ -2,21 +2,19 @@
 #ifndef BOT_H
 #define BOT_H
 
-//#include <Stepper.h>
-//#include "Arduino.h"  
-
-using namespace std;
+#include <Stepper.h>
 
 class bot{
   public:
-    bot(int wheelcirc1, int steps1);
-    void rotateBot(bot &bot, int deg);
-    void driveBot(bot &bot, int steps);
-    Stepper FrontR(2038,22,24,26,28);
-    Stepper FrontL(2038,29,27,25,23);
-    Stepper BackR(2038,30,32,34,36);
-    Stepper BackL(2038,37,35,33,31);
-  
+    bot(float wheelcirc1, int steps1,long speed);
+    Stepper FrontR = Stepper(2038,22,24,26,28);
+    Stepper FrontL = Stepper(2038,29,27,25,23);
+    Stepper BackR = Stepper(2038,30,32,34,36);
+    Stepper BackL = Stepper(2038,37,35,33,31);
+    void rotateBot(int deg,int steps);
+    void driveBot(int steps);
+    
+
   private:
     int wheelcirc;
     int steps;
